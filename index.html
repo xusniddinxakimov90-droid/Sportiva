@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sportiva — Premium Sport Do'koni</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div class="page-loader" id="loader">
+    <div class="loader-logo">⚡ Sportiva</div>
+    <div class="loader-bar">
+      <div class="loader-bar-fill"></div>
+    </div>
+  </div>
+
+  <nav id="navbar">
+    <a class="nav-logo" href="#" onclick="navigate('home');return false">⚡ Sportiva</a>
+    <div class="nav-links">
+      <button class="nav-link active" onclick="navigate('home')">🏠 Home</button>
+      <button class="nav-link" data-page="products" onclick="navigate('products')">🛍️ Products</button>
+      <button class="nav-link" data-page="categories" onclick="navigate('categories')">📦 Categories</button>
+      <button class="nav-link admin" data-page="admin" onclick="navigate('admin')">⚙️ Admin Panel</button>
+      <button class="nav-link" data-page="about" onclick="navigate('about')">ℹ️ About</button>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-btn" onclick="toggleTheme()" title="Theme">🌙</button>
+      <button class="cart-btn" onclick="openCart()" aria-label="Savat">
+        🛒<span class="cart-badge" id="cartBadge">0</span>
+      </button>
+    </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMobile()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="nav-link" data-page="home" onclick="navigate('home')">🏠 Home</button>
+    <button class="nav-link" data-page="products" onclick="navigate('products')">🛍️ Products</button>
+    <button class="nav-link" data-page="categories" onclick="navigate('categories')">📦 Categories</button>
+    <button class="nav-link admin" data-page="admin" onclick="navigate('admin')">⚙️ Admin Panel</button>
+    <button class="nav-link" data-page="about" onclick="navigate('about')">ℹ️ About</button>
+  </div>
+
+  <main>
+    <div class="page active" id="page-home">
+      <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+        <div class="hero-content">
+          <div class="hero-badge">🏆 Premium Sport Do'koni</div>
+          <h1>Sport bilan <span class="grad">Yangi Hayot</span> Boshla</h1>
+          <p>Eng yaxshi sport uskunalari, kiyimlari va aksessuarlar — barchasi bir joyda. Professional sifat, qulay
+            narxlar.</p>
+          <div class="hero-btns">
+            <button class="btn btn-primary" onclick="navigate('products')">🛍️ Mahsulotlarni ko'rish</button>
+            <button class="btn btn-outline" onclick="navigate('categories')">📦 Kategoriyalar</button>
+          </div>
+          <div class="hero-stats">
+            <div>
+              <div class="hero-stat-num" id="statTotal">0</div>
+              <div class="hero-stat-label">Mahsulotlar</div>
+            </div>
+            <div>
+              <div class="hero-stat-num" id="statCats">4</div>
+              <div class="hero-stat-label">Kategoriya</div>
+            </div>
+            <div>
+              <div class="hero-stat-num">100%</div>
+              <div class="hero-stat-label">Sifat kafolati</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BANNER SLIDER -->
+      <section class="slider-section">
+        <div class="section-header reveal">
+          <div class="section-tag">🔥 Aksiyalar</div>
+          <h2 class="section-title">Maxsus Takliflar</h2>
+          <p class="section-sub">Eng zo'r chegirmalar va yangi mahsulotlar</p>
+        </div>
+        <div style="overflow:hidden">
+          <div class="slider-track" id="sliderTrack">
+            <div class="banner-card banner-card-1"><span class="banner-icon">👟</span>
+              <div class="banner-tag">Krossovkalar</div>
+              <div class="banner-title">Nike Air Max 2024</div>
+              <div class="banner-desc">Eng yangi kolleksiya — rahatlik va uslub</div>
+              <div class="banner-discount">-30%</div>
+            </div>
+            <div class="banner-card banner-card-2"><span class="banner-icon">⚽</span>
+              <div class="banner-tag">To'plar</div>
+              <div class="banner-title">Adidas FIFA Pro</div>
+              <div class="banner-desc">Chempionlik darajasida to'p</div>
+              <div class="banner-discount">-20%</div>
+            </div>
+            <div class="banner-card banner-card-3"><span class="banner-icon">👕</span>
+              <div class="banner-tag">Kiyimlar</div>
+              <div class="banner-title">Sport Kiyimlar</div>
+              <div class="banner-desc">Zamonaviy dizayn + nafas oladigan material</div>
+              <div class="banner-discount">-25%</div>
+            </div>
+            <div class="banner-card banner-card-4"><span class="banner-icon">🏋️</span>
+              <div class="banner-tag">Anjomlar</div>
+              <div class="banner-title">Fitness Uskunalar</div>
+              <div class="banner-desc">Uyda gym qurishga hamma narsa</div>
+              <div class="banner-discount">-15%</div>
+            </div>
+            <div class="banner-card banner-card-5"><span class="banner-icon">🏸</span>
+              <div class="banner-tag">Raketlar</div>
+              <div class="banner-title">Wilson Pro Series</div>
+              <div class="banner-desc">Professional darajadagi raketalar</div>
+              <div class="banner-discount">-35%</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TOP PRODUCTS -->
+      <section class="section">
+        <div class="section-header reveal">
+          <div class="section-tag">⭐ Mashhur</div>
+          <h2 class="section-title">Top Mahsulotlar</h2>
+          <p class="section-sub">Eng ko'p sotilgan va eng yaxshi baholangan mahsulotlar</p>
+        </div>
+        <div class="products-grid" id="homeProductsGrid"></div>
+        <div style="text-align:center;margin-top:2.5rem" class="reveal">
+          <button class="btn btn-outline" onclick="navigate('products')">Barchasini ko'rish →</button>
+        </div>
+      </section>
+
+      <!-- DEALS -->
+      <div class="deals-section" id="dealsSection">
+        <div class="section-header reveal">
+          <div class="section-tag">🔥 Chegirma</div>
+          <h2 class="section-title">Bugungi Chegirmalar</h2>
+          <p class="section-sub">Vaqt cheklangan — tez fursatdan foydalaning!</p>
+        </div>
+        <div class="deals-grid" id="dealsGrid"></div>
+      </div>
+
+      <footer>
+        <div class="footer-logo">⚡ Sportiva</div>
+        <p class="footer-text">© <span class="year">2024</span> Sportiva. Barcha huquqlar himoyalangan.</p>
+      </footer>
+    </div>
+
+    <!-- ===== PRODUCTS PAGE ===== -->
+    <div class="page" id="page-products">
+      <div class="products-page">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Mahsulotlar</h1>
+            <p style="color:var(--text-secondary)">Barcha sport mahsulotlarimiz</p>
+          </div>
+          <button class="btn btn-primary" onclick="navigate('admin');adminNav('add')">+ Yangi mahsulot</button>
+        </div>
+        <div class="filters-bar">
+          <div class="search-wrap">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
+            </svg>
+            <input class="search-input" id="searchInput" type="text" placeholder="Mahsulot qidirish..."
+              oninput="filterProducts()">
+          </div>
+          <select class="filter-select" id="sortSelect" onchange="filterProducts()">
+            <option value="">Saralash</option>
+            <option value="cheap">Arzondan → Qimmatga</option>
+            <option value="expensive">Qimmatdan → Arzonga</option>
+            <option value="name">Nomi bo'yicha</option>
+          </select>
+          <div class="filter-tabs">
+            <button class="filter-tab active" data-cat="all" onclick="setFilter('all')">Barchasi</button>
+            <button class="filter-tab" data-cat="krossovka" onclick="setFilter('krossovka')">👟 Krossovka</button>
+            <button class="filter-tab" data-cat="futbol-topi" onclick="setFilter('futbol-topi')">⚽ To'p</button>
+            <button class="filter-tab" data-cat="kiyim" onclick="setFilter('kiyim')">👕 Kiyim</button>
+            <button class="filter-tab" data-cat="anjom" onclick="setFilter('anjom')">🏋️ Anjom</button>
+          </div>
+        </div>
+        <div class="products-grid" id="productsGrid"></div>
+        <div id="noProducts" class="no-products" style="display:none">
+          <span class="no-products-icon">🔍</span>
+          <h3>Mahsulot topilmadi</h3>
+          <p>Qidiruv so'zini o'zgartiring yoki boshqa kategoriyani tanlang</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== CATEGORIES PAGE ===== -->
+    <div class="page" id="page-categories">
+      <div class="products-page">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Kategoriyalar</h1>
+            <p style="color:var(--text-secondary)">Sport turlariga ko'ra mahsulotlar</p>
+          </div>
+        </div>
+        <div class="categories-grid reveal">
+          <div class="cat-card cat-1" onclick="goCat('krossovka')">
+            <span class="cat-icon">👟</span>
+            <div class="cat-name">Krossovkalar</div>
+            <div class="cat-count" id="count-krossovka">0 mahsulot</div>
+          </div>
+          <div class="cat-card cat-2" onclick="goCat('futbol-topi')">
+            <span class="cat-icon">⚽</span>
+            <div class="cat-name">Futbol To'pi</div>
+            <div class="cat-count" id="count-futbol-topi">0 mahsulot</div>
+          </div>
+          <div class="cat-card cat-3" onclick="goCat('kiyim')">
+            <span class="cat-icon">👕</span>
+            <div class="cat-name">Kiyimlar</div>
+            <div class="cat-count" id="count-kiyim">0 mahsulot</div>
+          </div>
+          <div class="cat-card cat-4" onclick="goCat('anjom')">
+            <span class="cat-icon">🏋️</span>
+            <div class="cat-name">Anjomlar</div>
+            <div class="cat-count" id="count-anjom">0 mahsulot</div>
+          </div>
+        </div>
+        <div style="margin-top:4rem">
+          <div class="section-header reveal" style="text-align:left;margin-bottom:1.5rem">
+            <h2 class="section-title" id="catSectionTitle">Barcha mahsulotlar</h2>
+          </div>
+          <div class="products-grid" id="catProductsGrid"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== ADMIN PAGE ===== -->
+    <div class="page" id="page-admin">
+      <div class="admin-page">
+        <aside class="admin-sidebar">
+          <div>
+            <div class="sidebar-title">Boshqaruv paneli</div>
+            <button class="sidebar-link active" id="sl-dashboard" onclick="adminNav('dashboard')">
+              <span class="sidebar-icon">📊</span>Dashboard
+            </button>
+            <button class="sidebar-link" id="sl-add" onclick="adminNav('add')">
+              <span class="sidebar-icon">➕</span>Mahsulot qo'shish
+            </button>
+            <button class="sidebar-link" id="sl-manage" onclick="adminNav('manage')">
+              <span class="sidebar-icon">📦</span>Boshqarish
+            </button>
+          </div>
+        </aside>
+        <div class="admin-main">
+          <!-- DASHBOARD -->
+          <div class="admin-section active" id="as-dashboard">
+            <h2 style="font-size:1.75rem;font-weight:800;margin-bottom:0.5rem">📊 Dashboard</h2>
+            <p style="color:var(--text-secondary);margin-bottom:2rem">Sport do'koni statistikasi</p>
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-icon stat-icon-1">📦</div>
+                <div class="stat-value" id="dashTotal">0</div>
+                <div class="stat-label">Jami mahsulotlar</div>
+                <div class="stat-change">↑ Barcha vaqt</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon stat-icon-2">👟</div>
+                <div class="stat-value" id="dashShoe">0</div>
+                <div class="stat-label">Krossovkalar</div>
+                <div class="stat-change">↑ Eng ko'p</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon stat-icon-3">⚽</div>
+                <div class="stat-value" id="dashBall">0</div>
+                <div class="stat-label">Futbol to'pi</div>
+                <div class="stat-change">↑ Faol</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon stat-icon-4">👕</div>
+                <div class="stat-value" id="dashCloth">0</div>
+                <div class="stat-label">Kiyimlar</div>
+                <div class="stat-change">↑ Yangi</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon stat-icon-2">🏋️</div>
+                <div class="stat-value" id="dashGear">0</div>
+                <div class="stat-label">Anjomlar</div>
+                <div class="stat-change">↑ Faol</div>
+              </div>
+            </div>
+            <!-- Recent Products -->
+            <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:1rem">🕐 So'nggi qo'shilganlar</h3>
+            <div id="recentProducts" style="display:flex;flex-direction:column;gap:0.75rem"></div>
+          </div>
+
+          <!-- ADD PRODUCT -->
+          <div class="admin-section" id="as-add">
+            <h2 style="font-size:1.75rem;font-weight:800;margin-bottom:0.5rem">➕ Mahsulot Qo'shish</h2>
+            <p style="color:var(--text-secondary);margin-bottom:2rem">Yangi sport mahsuloti ma'lumotlarini kiriting</p>
+            <div class="form-card">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label">Mahsulot nomi *</label>
+                  <input class="form-input" id="fName" placeholder="Masalan: Nike Air Max 270" type="text">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Narxi (so'm) *</label>
+                  <input class="form-input" id="fPrice" placeholder="Masalan: 850000" type="number" min="0">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Eski narx (ixtiyoriy, chegirma uchun)</label>
+                  <input class="form-input" id="fOld" placeholder="Masalan: 1000000" type="number" min="0">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Kategoriya *</label>
+                  <select class="form-select" id="fCat">
+                    <option value="">Kategoriyani tanlang</option>
+                    <option value="krossovka">👟 Krossovka</option>
+                    <option value="futbol-topi">⚽ Futbol to'pi</option>
+                    <option value="kiyim">👕 Kiyim</option>
+                    <option value="anjom">🏋️ Anjom</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Rasm URL yoki yuklab olish</label>
+                  <input class="form-input" id="fImgUrl" placeholder="https://..." oninput="previewImg()" type="text">
+                </div>
+                <div class="form-group full">
+                  <label class="form-label">Rasm yuklash (ixtiyoriy)</label>
+                  <input type="file" accept="image/*" id="fImgFile"
+                    style="padding:0.5rem;background:var(--bg-glass);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text-primary);width:100%"
+                    onchange="handleFileUpload(this)">
+                </div>
+                <div class="form-group full">
+                  <label class="form-label">Rasm ko'rinishi</label>
+                  <div class="img-preview" id="imgPreview" onclick="document.getElementById('fImgFile').click()">
+                    <span style="font-size:2rem">📷</span>
+                    <span style="font-size:0.85rem">Rasm tanlash uchun bosing</span>
+                  </div>
+                </div>
+                <div class="form-group full">
+                  <label class="form-label">Tavsif</label>
+                  <textarea class="form-textarea" id="fDesc"
+                    placeholder="Mahsulot haqida batafsil ma'lumot..."></textarea>
+                </div>
+              </div>
+              <button class="form-submit" onclick="addProduct()">✅ Mahsulotni saqlash</button>
+            </div>
+          </div>
+
+          <!-- MANAGE -->
+          <div class="admin-section" id="as-manage">
+            <div
+              style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem">
+              <div>
+                <h2 style="font-size:1.75rem;font-weight:800;margin-bottom:0.25rem">📦 Mahsulotlarni Boshqarish</h2>
+                <p style="color:var(--text-secondary)">Tahrirlash, o'chirish va ko'rish</p>
+              </div>
+              <button class="btn btn-primary" onclick="adminNav('add')">+ Yangi qo'shish</button>
+            </div>
+            <div class="admin-products-grid" id="adminProductsGrid"></div>
+            <div id="noAdminProducts" class="no-products" style="display:none">
+              <span class="no-products-icon">📦</span>
+              <h3>Hali mahsulot yo'q</h3>
+              <p>Birinchi mahsulotni qo'shing!</p>
+              <button class="btn btn-primary" style="margin-top:1rem" onclick="adminNav('add')">+ Mahsulot
+                qo'shish</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page" id="page-about">
+      <div class="about-page">
+        <div class="about-hero">
+          <div class="about-text reveal-left">
+            <h2>Sportiva haqida</h2>
+            <p>Biz 2020-yildan beri O'zbekistondagi sport mahsulotlari bozorida ishlaymiz. Bizning maqsadimiz — har bir
+              sport sevuvchiga eng yaxshi sifat va qulay narxlarda mahsulot taqdim etish.</p>
+            <p>Bizda 500+ dan ortiq mahsulot assortimenti mavjud bo'lib, ularning barchasi sertifikatli va original
+              mahsulotlardir.</p>
+            <div class="about-features">
+              <div class="about-feature"><span class="about-feature-icon">🚚</span>
+                <h4>Tez yetkazib berish</h4>
+                <p>Butun O'zbekiston bo'ylab 1-3 kun</p>
+              </div>
+              <div class="about-feature"><span class="about-feature-icon">💎</span>
+                <h4>Original mahsulotlar</h4>
+                <p>100% sertifikatli va original</p>
+              </div>
+              <div class="about-feature"><span class="about-feature-icon">🔄</span>
+                <h4>Qaytarish kafolati</h4>
+                <p>30 kun ichida qaytarish</p>
+              </div>
+              <div class="about-feature"><span class="about-feature-icon">📞</span>
+                <h4>24/7 qo'llab-quvvatlash</h4>
+                <p>Har qanday savolingizga javob</p>
+              </div>
+            </div>
+          </div>
+          <div class="about-visual reveal-right">⚡</div>
+        </div>
+      </div>
+      <footer>
+        <div class="footer-logo">⚡ Sportiva</div>
+        <p class="footer-text">© <span class="year">2024</span> Sportiva. Barcha huquqlar himoyalangan. | Toshkent, O'zbekiston</p>
+      </footer>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="editModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">✏️ Mahsulotni tahrirlash</h3>
+        <button class="modal-close" onclick="closeModal('editModal')">✕</button>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Nomi *</label>
+          <input class="form-input" id="eName" type="text">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Narxi *</label>
+          <input class="form-input" id="ePrice" type="number" min="0">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Eski narx (ixtiyoriy)</label>
+          <input class="form-input" id="eOld" type="number" min="0">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Kategoriya *</label>
+          <select class="form-select" id="eCat">
+            <option value="krossovka">👟 Krossovka</option>
+            <option value="futbol-topi">⚽ Futbol to'pi</option>
+            <option value="kiyim">👕 Kiyim</option>
+            <option value="anjom">🏋️ Anjom</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Rasm URL</label>
+          <input class="form-input" id="eImgUrl" type="text" oninput="previewEditImg()">
+        </div>
+        <div class="form-group full">
+          <label class="form-label">Rasm yuklash</label>
+          <input type="file" accept="image/*" id="eImgFile"
+            style="padding:0.5rem;background:var(--bg-glass);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text-primary);width:100%"
+            onchange="handleEditFileUpload(this)">
+        </div>
+        <div class="form-group full">
+          <label class="form-label">Ko'rinish</label>
+          <div class="img-preview" id="eImgPreview" style="height:150px"
+            onclick="document.getElementById('eImgFile').click()">
+            <span style="font-size:1.5rem">📷</span>
+          </div>
+        </div>
+        <div class="form-group full">
+          <label class="form-label">Tavsif</label>
+          <textarea class="form-textarea" id="eDesc"></textarea>
+        </div>
+      </div>
+      <input type="hidden" id="eId">
+      <button class="form-submit" style="margin-top:1.25rem" onclick="saveEdit()">💾 O'zgarishlarni saqlash</button>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="deleteModal">
+    <div class="modal" style="max-width:400px">
+      <div class="modal-header">
+        <h3 class="modal-title">O'chirishni tasdiqlash</h3>
+        <button class="modal-close" onclick="closeModal('deleteModal')">✕</button>
+      </div>
+      <div class="confirm-modal">
+        <span class="confirm-icon">🗑️</span>
+        <h3 style="margin-bottom:0.5rem" id="deleteProductName">Mahsulot</h3>
+        <p class="confirm-text">Bu mahsulotni o'chirishni xohlaysizmi? Bu amalni bekor qilib bo'lmaydi.</p>
+        <div class="confirm-btns">
+          <button class="btn-cancel" onclick="closeModal('deleteModal')">Bekor qilish</button>
+          <button class="btn-danger" onclick="confirmDelete()">O'chirish</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="viewModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">📋 Mahsulot ma'lumotlari</h3>
+        <button class="modal-close" onclick="closeModal('viewModal')">✕</button>
+      </div>
+      <div class="view-modal-img" id="viewImg"></div>
+      <div class="view-modal-cat" id="viewCat"></div>
+      <div class="view-modal-name" id="viewName"></div>
+      <div class="view-modal-price" id="viewPrice"></div>
+      <div class="view-modal-desc" id="viewDesc"></div>
+      <button class="btn btn-primary" style="width:100%"
+        onclick="addToCart(viewId);closeModal('viewModal')">🛒 Savatga
+        qo'shish</button>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="cartModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">🛒 Savat</h3>
+        <button class="modal-close" onclick="closeModal('cartModal')">✕</button>
+      </div>
+      <div id="cartItems"></div>
+      <div id="cartActions" style="display:none">
+        <div class="cart-total"><span>Jami:</span><span id="cartTotal">0 so'm</span></div>
+        <div class="confirm-btns">
+          <button class="btn-cancel" onclick="clearCart()">Tozalash</button>
+          <button class="btn btn-primary" onclick="checkout()">Buyurtma berish</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="main.js"></script>
+
+</body>
+
+</html>
